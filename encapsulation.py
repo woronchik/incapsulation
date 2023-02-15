@@ -89,5 +89,3 @@ class Mage:
         print(f'{self.__class__.__name__} наносит урон магией по {target.__class__.__name__}')
         print(f'Здоровье у {target.__class__.__name__} уменьшено до {target._get_health()}')
         print("----------------")
-
-

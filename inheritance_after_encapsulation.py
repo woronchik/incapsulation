@@ -19,7 +19,6 @@ class Knight(Warrior):
             self.__armor = 0
             super()._set_health(-points)
 
-
     def _set_health(self, points):
         if points > 0:
             super()._set_health(points)
@@ -42,7 +41,6 @@ class Knight(Warrior):
             super().attacks(target)
 
 
-
 class Wizard(Mage):
     def __init__(self, health=60, mana=100, barrier=12):
         super().__init__(health, mana)
@@ -59,7 +57,6 @@ class Wizard(Mage):
             points -= self.__barrier
             self.__barrier = 0
             super()._set_health(-points)
-
 
     def _set_health(self, points):
         if points > 0:
@@ -81,4 +78,3 @@ class Wizard(Mage):
             self.__critical_hit(target)
         else:
             super().attacks(target)
-

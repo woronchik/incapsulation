@@ -84,17 +84,24 @@ unit2 = Mage(60, 100)
 unit3 = Knight(100, 100, 100)
 unit4 = Wizard(60, 100, 50)
 
-def Fight(unit1, unit2):
+def fight(unit1, unit2, unit3, unit4):
     while True:
-        if unit1._get_health() > 0 and unit2._get_health() > 0:
-            unit1.attacks(unit2)
-            unit2.attacks(unit1)
+        if unit1._get_health() > 0 and unit2._get_health() > 0 and unit3._get_health() > 0 and unit4._get_health() > 0:
+            unit1.attacks(choice([unit2, unit3, unit4]))
+            unit2.attacks(choice([unit1, unit3, unit4]))
+            unit3.attacks(choice([unit1, unit2, unit4]))
+            unit4.attacks(choice([unit1, unit2, unit3]))
             if unit1._get_health() <= 0:
                 print(f'{unit1.__class__.__name__} is dead')
             elif unit2._get_health() <= 0:
                 print(f'{unit2.__class__.__name__} is dead')
+            elif unit3._get_health() <= 0:
+                print(f'{unit3.__class__.__name__} is dead')
+            elif unit4._get_health() <= 0:
+                print(f'{unit4.__class__.__name__} is dead')
 
-f = Fight(unit1, unit2)
+
+f = fight(unit1, unit2, unit3, unit4)
 print(f)
 
 

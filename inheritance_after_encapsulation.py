@@ -1,4 +1,4 @@
-import random
+from random import randint
 from encapsulation import Warrior, Mage
 
 
@@ -34,7 +34,7 @@ class Knight(Warrior):
         print("----------------")
 
     def attacks(self, target):
-        random_number = random.randint(1, 10)
+        random_number = randint(1, 10)
         if random_number <= 4:
             self.__critical_hit(target)
         else:
@@ -44,18 +44,18 @@ class Knight(Warrior):
 class Wizard(Mage):
     def __init__(self, health=60, mana=100, barrier=12):
         super().__init__(health, mana)
-        self.__barrier = barrier
+        self._barrier = barrier
 
     def __points_job(self, points):
-        if self.__barrier > points:
-            self.__barrier -= points
-            print(f'Мгаический барьер поглощает урон и снижается до {self.__barrier}')
+        if self._barrier > points:
+            self._barrier -= points
+            print(f'Магический барьер поглощает урон и снижается до {self._barrier}')
             return
-        elif self.__barrier >= 0:
-            if self.__barrier != 0:
+        elif self._barrier >= 0:
+            if self._barrier != 0:
                 print("Броня уничтожена")
-            points -= self.__barrier
-            self.__barrier = 0
+            points -= self._barrier
+            self._barrier = 0
             super()._set_health(-points)
 
     def _set_health(self, points):
@@ -73,7 +73,7 @@ class Wizard(Mage):
         print("----------------")
 
     def attacks(self, target):
-        random_number = random.randint(1, 10)
+        random_number = randint(1, 10)
         if random_number >= 8:
             self.__critical_hit(target)
         else:

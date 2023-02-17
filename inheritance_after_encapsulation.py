@@ -1,4 +1,4 @@
-from random import randint
+from random import randint, choice
 from encapsulation import Warrior, Mage
 
 
@@ -78,3 +78,23 @@ class Wizard(Mage):
             self.__critical_hit(target)
         else:
             super().attacks(target)
+
+unit1 = Warrior(100, 100)
+unit2 = Mage(60, 100)
+unit3 = Knight(100, 100, 100)
+unit4 = Wizard(60, 100, 50)
+
+def Fight(unit1, unit2):
+    while True:
+        if unit1._get_health() > 0 and unit2._get_health() > 0:
+            unit1.attacks(unit2)
+            unit2.attacks(unit1)
+            if unit1._get_health() <= 0:
+                print(f'{unit1.__class__.__name__} is dead')
+            elif unit2._get_health() <= 0:
+                print(f'{unit2.__class__.__name__} is dead')
+
+f = Fight(unit1, unit2)
+print(f)
+
+
